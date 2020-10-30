@@ -1,0 +1,40 @@
+{
+  "name": "@unegma/clicksend-utilities",
+  "version": "1.0.0",
+  "description": "Utility functions for interacting with ClickSend APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/index.spec.js",
+    "update-install": "npm update; npm install;",
+    "pub-major": "bash ./publish.sh -v major",
+    "pub-minor": "bash ./publish.sh -v minor",
+    "pub-patch": "bash ./publish.sh -v patch",
+    "unpublish-single-version": "npm unpublish <package-name>@<version>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unegma/clicksend-utilities.git"
+  },
+  "keywords": [
+    "middlewear",
+    "api"
+  ],
+  "author": "Unegma lTD",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unegma/clicksend-utilities/issues"
+  },
+  "homepage": "https://github.com/unegma/clicksend-utilities#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "mocha": "^8.2.0",
+    "nock": "^13.0.4",
+    "sinon": "^9.0.3",
+    "sinon-chai": "^3.5.0"
+  },
+  "dependencies": {
+    "@unegma/error-handler": "^1.4.18",
+    "node-fetch": "^2.6.1"
+  }
+}
