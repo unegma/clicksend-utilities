@@ -16,8 +16,11 @@ describe('ClickSend Utilities Test', () => {
   });
 
   it('should create an instance of ClickSendUtilities', () => {
-    const error = new ClickSendUtilities(process.env.CLICKSEND_USER, process.env.CLICKSEND_API_KEY, process.env.SLACK_ERROR_LOG);
-    expect(error.message).to.equal('Error');
+    const cSUtilities = new ClickSendUtilities(process.env.CLICKSEND_USER, process.env.CLICKSEND_API_KEY, process.env.SLACK_ERROR_LOG);
+    expect(cSUtilities).to.be.instanceOf(ClickSendUtilities);
+    expect(() => {
+      cSUtilities.throwError('Message')
+    }).to.throw(ClickSendIntegrationError);
   });
 
   it('should create an instance of a ClickSendIntegrationError', () => {
