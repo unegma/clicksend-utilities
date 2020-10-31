@@ -1,9 +1,9 @@
-const SLACK_ERROR_LOG = 'https://example.com';
 const chai = require('chai');
 const expect = chai.expect;
 const sinon = require('sinon');
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
+require('dotenv').config({ path: '../.env' });
 const nock = require('nock');
 const ClickSendUtilities = require('../lib/ClickSendUtilities');
 const ClickSendIntegrationError = require('../lib/errors/ClickSendIntegrationError');
@@ -16,7 +16,7 @@ describe('ClickSend Utilities Test', () => {
   });
 
   it('should create an instance of ClickSendUtilities', () => {
-    const error = new ClickSendUtilities();
+    const error = new ClickSendUtilities(process.env.CLICKSEND_USER, process.env.CLICKSEND_API_KEY, process.env.SLACK_ERROR_LOG);
     expect(error.message).to.equal('Error');
   });
 
