@@ -6,9 +6,9 @@
   "scripts": {
     "test": "mocha ./test/index.spec.js",
     "update-install": "npm update; npm install;",
-    "pub-major": "bash ./publish.sh -v major",
-    "pub-minor": "bash ./publish.sh -v minor",
-    "pub-patch": "bash ./publish.sh -v patch",
+    "pub-major": "npm version major",
+    "pub-minor": "npm version minor",
+    "pub-patch": "npm version patch",
     "unpublish-single-version": "npm unpublish <package-name>@<version>"
   },
   "repository": {
