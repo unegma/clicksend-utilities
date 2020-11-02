@@ -18,16 +18,16 @@ describe('ClickSend Utilities Test', () => {
   afterEach(function() {
   });
 
-  it('should create an instance of ClickSendUtilities', () => {
-    expect(cSUtilities).to.be.instanceOf(ClickSendUtilities);
-    expect(() => {
-      cSUtilities.throwError('Message')
-    }).to.throw(ClickSendIntegrationError);
+  // live test (will get real account)
+  it('should get my account', async () => {
+    let result = await cSUtilities.getFromCS('/account');
+    expect(result.data).to.include.keys('username');
   });
 
-  it('should create an instance of a ClickSendIntegrationError', () => {
-    const error = new ClickSendIntegrationError('Error');
-    expect(error.message).to.equal('Error');
+  // live test using test account mobile number +61411111111
+  it('should send a message to test account', async () => {
+    let result = await smsUtilities.sendSMS('+61411111111', 'Hello');
+    expect(result['response_msg']).to.equal('Messages queued for delivery.');
   });
 
 });
